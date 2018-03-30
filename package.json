@@ -1,0 +1,35 @@
+{
+  "name": "testproject5",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/LokaHQ/testproject5.git",
+  "author": "Gribadze <fedor.dmitry@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "babel-node index.js",
+    "test": "jest",
+    "eslint": "eslint ./**/*.js",
+    "sequelize": "babel-node ./node_modules/.bin/sequelize"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.19.1",
+    "flow-bin": "^0.68.0",
+    "jest": "^22.4.3",
+    "regenerator-runtime": "^0.11.1",
+    "sequelize-cli": "^4.0.0"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2",
+    "graphql-relay": "^0.5.4",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.37.4"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "dmitry",
+    "password": null,
+    "database": "vynil-records-dev",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "dmitry",
+    "password": null,
+    "database": "vynil-records-test",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "dmitry",
+    "password": null,
+    "database": "vynil-records",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  }
+}

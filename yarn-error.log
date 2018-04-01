@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js test
+  /usr/bin/node /usr/share/yarn/bin/yarn.js start
 
 PATH: 
-  /home/dmitry/.local/share/umake/bin:/home/dmitry/.local/share/umake/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/dmitry/.local/share/umake/bin:/home/dmitry/bin:/home/dmitry/.local/bin:/home/dmitry/.local/share/umake/bin:/home/dmitry/bin:/home/dmitry/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/dmitry/.config/composer/vendor/bin/:/home/dmitry/.config/composer/vendor/bin/
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.11.0
+  8.11.1
 
 Platform: 
   linux x64
@@ -22,7 +22,7 @@ npm manifest:
     "author": "Gribadze <fedor.dmitry@gmail.com>",
     "license": "MIT",
     "scripts": {
-      "start": "babel-node index.js",
+      "start": "node index.js",
       "test": "jest",
       "eslint": "eslint ./**/*.js",
       "sequelize": "babel-node ./node_modules/.bin/sequelize"
@@ -4890,8 +4890,8 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c jest
-  Directory: /home/dmitry/coding/testproject5
+  Arguments: -c babel-node index.js --watch
+  Directory: /home/dmitry/code/graphql
   Output:
   
       at ProcessTermError.MessageError (/usr/share/yarn/lib/cli.js:186:110)

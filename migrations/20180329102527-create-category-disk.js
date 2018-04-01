@@ -10,7 +10,7 @@ export default {
                 type: Sequelize.DATE
             },
             category_id: {
-                type: Sequelize.UUID,
+                type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Categories',
@@ -19,7 +19,7 @@ export default {
                 }
             },
             disk_id: {
-                type: Sequelize.UUID,
+                type: Sequelize.INTEGER,
                 onDelete: 'CASCADE',
                 references: {
                     model: 'Disks',

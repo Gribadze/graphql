@@ -1,12 +1,15 @@
-import disk from './disk/disk';
-import disks from './disk/disks';
+import {
+    GraphQLObjectType,
+} from 'graphql';
+import { nodeField as node } from '../types';
+import disks from './disks';
+import categories from './categories';
 
-import category from './category/category';
-import categories from './category/categories';
-
-export default {
-    disk,
-    disks,
-    category,
-    categories
-};
+export default new GraphQLObjectType({
+    name: 'Query',
+    fields: {
+        disks,
+        categories,
+        node
+    }
+});

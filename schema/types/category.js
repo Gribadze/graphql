@@ -1,45 +1,37 @@
 import {
     GraphQLObjectType,
     GraphQLString,
-    GraphQLNonNull,
-    GraphQLList
+    GraphQLNonNull
 } from 'graphql';
 import {
-    nodeDefinitions,
-    fromGlobalId,
-    globalIdField
+    globalIdField,
+    connectionFromPromisedArray,
+    connectionArgs,
+    connectionDefinitions
 } from 'graphql-relay';
-import Disk from './disk.js';
-import api from '../../api/';
+import models from '../../models';
+import { diskConnection } from './disk';
+import { nodeInterface } from './node';
 
-const { nodeInterface, nodeField } = nodeDefinitions(
-    globalId => {
-        const { id } = fromGlobalId(globalId);
-        return api.getCategoryById(id);
-    },
-    obj => {
-        return CategoryType;
-    }
-);
-
-const CategoryType = new GraphQLObjectType({
+export const CategoryType = new GraphQLObjectType({
     name: 'Category',
-    description: 'Category of vynil records',
+    description: 'Category of vynil record',
     fields: () => ({
-        id: globalIdField()/*{
-            type: new GraphQLNonNull(GraphQLString),
-            resolve: category => category.id
-        }*/,
+        id: globalIdField(),
         name: {
-            type: new GraphQLNonNull(GraphQLString),
-            resolve: category => category.name
+            type: new GraphQLNonNull(GraphQLString)
         },
         disks: {
-            type: new GraphQLList(Disk),
-            resolve: api.getDisksByCategory
+            type: diskConnection,
+            args: connectionArgs,
+            resolve: (source, args) => connectionFromPromisedArray(
+                source.getDisks(),
+                args
+            )
         }
     }),
-    interfaces: [nodeInterface]
+    interfaces: [ nodeInterface ],
+    isTypeOf: value => value instanceof models.Category
 });
 
-export default CategoryType;
+export const { connectionType: categoryConnection } = connectionDefinitions({ nodeType: CategoryType });

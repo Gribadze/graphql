@@ -1,17 +1,11 @@
-import createCategory from './category/create';
-import updateCategory from './category/update';
-import deleteCategory from './category/delete';
+import { GraphQLObjectType } from 'graphql';
+import * as CategoryMutations from './category';
+import * as DiskMutations from './disk';
 
-import createDisk from './disk/create';
-import updateDisk from './disk/update';
-import deleteDisk from './disk/delete';
-
-export default {
-    createCategory,
-    updateCategory,
-    deleteCategory,
-
-    createDisk,
-    updateDisk,
-    deleteDisk
-};
+export default new GraphQLObjectType({
+    name: 'Mutation',
+    fields: Object.assign({},
+        DiskMutations,
+        CategoryMutations
+    )
+});
